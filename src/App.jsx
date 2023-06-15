@@ -18,7 +18,7 @@ function App() {
   const [image, setImage] = useState('https://placekitten.com/200/200')
   const [language, setLanguage] = useState('Spanish')
   const onImageClick = () => {
-    setImage("https://placekitten.com/150/150")
+    setImage('https://placekitten.com/150/150')
   }
   const onClickHandler = () => {
     setText("¿Hola, cómo estás?")
