@@ -1,47 +1,48 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 const contentByLanguage = {
   Spanish: {
-    title: 'España', textCountry: 'España es un país hermoso que tiene mucho que ofrecer. Esta página estará especialmente dedicada a Lluís, uno de los mejores escaladores españoles!', flag: 'https://placekitten.com/100/100'
+    title: 'España', textCountry: 'España es un país hermoso que tiene mucho que ofrecer. Esta página estará especialmente dedicada a Lluís, uno de los mejores escaladores españoles!', flag: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Bandera_de_Espa%C3%B1a.svg'
   },
   English: {
-    title: 'Spain', textCountry: 'Spain is a beautiful country that has a lot to offer. This page is for Lluís, one of the best Spanish climbers.', flag: 'https://placekitten.com/80/80'
+    title: 'Spain', textCountry: 'Spain is a beautiful country that has a lot to offer. This page is for Lluís, one of the best Spanish climbers.', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png'
   }
 }
 
 function App() {
-  const [count, setCount] = useState(0)
   const [text, setText] = useState('vino de la casa')
-  const [fontFamily, setFontFamily] = useState('Arial')
+  const [customFontFamily, setCustomFontFamily] = useState('Arial')
   const [image, setImage] = useState('https://placekitten.com/200/200')
   const [language, setLanguage] = useState('Spanish')
+  const [count, setCount] = useState(0)
+  const onFlagClick = () => {
+    let newLanguage = 'English'
+    if (language == 'English') {
+      newLanguage = 'Spanish'
+    }
+    setLanguage(newLanguage)
+    setCount(count + 1)
+  }
   const onImageClick = () => {
     setImage('https://placekitten.com/150/150')
   }
   const onClickHandler = () => {
     setText("¿Hola, cómo estás?")
-    setFontFamily("Montserrat")
-    let newLanguage = 'English'
-    if (language == 'English') {
-      newLanguage = 'Spanish'
-    }
-
-    setLanguage(newLanguage)
+    setCustomFontFamily("Montserrat")
+    
   }
   return (
     <div style={{ fontFamily: "Montserrat" }}>
       <h2 onClick={onClickHandler}>{contentByLanguage[language].title}</h2>
       {contentByLanguage[language].textCountry}<br />Espero que te diviertas.
-      <div style={{ fontFamily }}>
+      <div style={{ fontFamily: customFontFamily }}>
         {text}
       </div>
       <div style={{ display: 'grid', placeContent: 'center' }}>
         <img className='logo fancy' onClick={onImageClick} src={image} />
+        <img className='logo fancy' onClick={onFlagClick} src={contentByLanguage[language].flag} />
       </div>
-    </div>
-  );
+    </div>)
 }
 
 export default App
