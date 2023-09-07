@@ -29,18 +29,21 @@ function App() {
   const onClickHandler = () => {
     setText("¿Hola, cómo estás?")
     setCustomFontFamily("Montserrat")
-    
+
   }
   return (
     <div style={{ fontFamily: "Montserrat" }}>
-      <h2 onClick={onClickHandler}>{contentByLanguage[language].title}</h2>
+      <h1 onClick={onClickHandler}>{contentByLanguage[language].title}</h1>
       {contentByLanguage[language].textCountry}<br />Espero que te diviertas.
       <div style={{ fontFamily: customFontFamily }}>
         {text}
       </div>
       <div style={{ display: 'grid', placeContent: 'center' }}>
-        <img className='logo fancy' onClick={onImageClick} src={image} />
         <img className='logo fancy' onClick={onFlagClick} src={contentByLanguage[language].flag} />
+        <img className='logo fancy' onClick={onImageClick} src={image} />
+        <div style={{ fontFamily: customFontFamily }}>
+          I have clicked {count} times on the flag today.
+        </div>
       </div>
     </div>)
 }
