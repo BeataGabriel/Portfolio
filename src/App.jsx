@@ -1,9 +1,16 @@
 import { useState } from 'react'
 import './App.css'
+import Beznadejna from './assets/IMG_6813.jpeg'
+import Vasniva from './assets/IMG_6812.jpeg'
+import Vecerni from './assets/IMG_6811.jpeg'
+import Gallery from './gallery'
+
 const contentByLanguage = {
   Spanish: {
     title: 'Portfolio', textCountry: 'España es un país hermoso que tiene mucho que ofrecer. Esta página estará especialmente dedicada a Lluís, uno de los mejores escaladores españoles!', flag: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Bandera_de_Espa%C3%B1a.svg', things: [
-      { title: 'Beznadějná', image: 'https://i.imgur.com/Vtfra5V.jpeg', link: 'https://i.imgur.com/Vtfra5V.jpeg' }, { title: 'Vášnivá', image: 'https://i.imgur.com/SQDDNRz.jpeg', link: 'https://i.imgur.com/SQDDNRz.jpeg' }, { title: 'Adina', image: 'https://i.imgur.com/6uB7lVV.jpeg', link: 'https://i.imgur.com/6uB7lVV.jpeg' }
+      { title: 'Večerní', image: Vecerni },
+      { title: 'Vášnivá', image: Vasniva },
+      { title: 'Beznadějná', image: Beznadejna }
     ]
   },
   English: {
@@ -45,13 +52,9 @@ function App() {
       <div style={{ display: 'grid', placeContent: 'center' }}>
         <div
           className='thingBox'>
-
-          {contentByLanguage[language].things.map((beer) =>
-            <a className='thing' href={beer.link} target='_blank'>
-              <img src={beer.image} style={{ width: 300 }} />
-              <h5>{beer.title}</h5>
-            </a>
-          )}
+          <Gallery galleryID='paintings' images={contentByLanguage[language].things.map((image) =>
+            ({ ...image, height: 2000, width: 1530 })
+          )}></Gallery>
         </div>
         <img className='logo fancy' onClick={onFlagClick} src={contentByLanguage[language].flag} />
         <img className='logo fancy' onClick={onImageClick} src={image} />

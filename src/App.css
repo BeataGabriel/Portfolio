@@ -13,11 +13,11 @@
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #ffffffff);
 }
 
 .logo.fancy:hover {
-  filter: drop-shadow(0 0 2em #ff19cdd0);
+  filter: drop-shadow(0 0 2em #fffefed0);
 }
 
 @keyframes logo-spin {
@@ -49,5 +49,5 @@
 }
 
 .thing {
-  color: #b21690d0
+  color: #b216168b
 }
