@@ -7,7 +7,7 @@ import Gallery from './gallery'
 
 const contentByLanguage = {
   English: {
-    title: 'Portfolio', textCountry: 'Welcome to my art playground! Here, you will find the colorful chaos of an amateur artist letting her imagination run wild.Enjoy the gallery of accidental masterpieces, where imperfection is my signature style.', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/512px-Flag_of_Norway.svg.png', things: [
+    title: 'Portfolio', textCountry: 'Welcome to my art playground! Here, you will find the colorful chaos of an amateur artist letting her imagination run wild. Enjoy the gallery of accidental masterpieces, where imperfection is my signature style. Cheers!', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/512px-Flag_of_Norway.svg.png', things: [
       { title: 'Večerní', image: Vecerni, width: 2714, height: 3471 },
       { title: 'Vášnivá', image: Vasniva, width: 2678, height: 3428 },
       { title: 'Beznadějná', image: Beznadejna, width: 2807, height: 3547 }
@@ -23,15 +23,15 @@ const contentByLanguage = {
 }
 
 function App() {
-  const [text, setText] = useState('vino de la casa')
+  const [text, setText] = useState('Cheers!')
   const [customFontFamily, setCustomFontFamily] = useState('Arial')
   const [image, setImage] = useState('https://placekitten.com/200/200')
-  const [language, setLanguage] = useState('Spanish')
+  const [language, setLanguage] = useState('English')
   const [count, setCount] = useState(0)
   const onFlagClick = () => {
-    let newLanguage = 'English'
-    if (language == 'English') {
-      newLanguage = 'Spanish'
+    let newLanguage = 'Norwegian'
+    if (language == 'Norwegian') {
+      newLanguage = 'English'
     }
     setLanguage(newLanguage)
     setCount(count + 1)
@@ -40,7 +40,7 @@ function App() {
     setImage('https://placekitten.com/150/150')
   }
   const onClickHandler = () => {
-    setText("¿Hola, cómo estás?")
+    setText("Skål!")
     setCustomFontFamily("Montserrat")
 
   }
