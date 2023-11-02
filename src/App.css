@@ -55,3 +55,7 @@
 .imageTitle {
   text-align: center;
 }
+
+body {
+  font-family: 'Courier New', sans-serif;
+}

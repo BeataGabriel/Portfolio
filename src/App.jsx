@@ -7,14 +7,14 @@ import Gallery from './gallery'
 
 const contentByLanguage = {
   English: {
-    title: 'Portfolio', textCountry: 'Welcome to my art playground! Here, you will find the colorful chaos of an amateur artist letting her imagination run wild. Enjoy the gallery of accidental masterpieces, where imperfection is my signature style. Cheers!', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/512px-Flag_of_Norway.svg.png', things: [
+    title: 'Welcome to My Art Jungle', textCountry: 'Here, you will find the colorful chaos of an amateur artist letting her imagination run wild. Enjoy the gallery of accidental masterpieces, where imperfection is my signature style.', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/512px-Flag_of_Norway.svg.png', style: "text-align: center;", things: [
       { title: 'Večerní', image: Vecerni, width: 2714, height: 3471 },
       { title: 'Vášnivá', image: Vasniva, width: 2678, height: 3428 },
       { title: 'Beznadějná', image: Beznadejna, width: 2807, height: 3547 }
     ]
   },
   Norwegian: {
-    title: 'Portfolio', textCountry: 'Velkommen til kunstlekeplassen min! Her finner du det fargerike kaoset til en amatørkunstner som lar fantasien løpe løpsk. Nyt galleriet med tilfeldige mesterverk, der ufullkommenhet er min signaturstil.', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png', things: [
+    title: 'Velkommen til kunstjungelen min', textCountry: 'Her finner du det fargerike kaoset til en amatørkunstner som lar fantasien løpe løpsk. Nyt galleriet med tilfeldige mesterverk, der ufullkommenhet er min signaturstil.', flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png', things: [
       { title: 'Večerní', image: Vecerni, width: 2714, height: 3471 },
       { title: 'Vášnivá', image: Vasniva, width: 2678, height: 3428 },
       { title: 'Beznadějná', image: Beznadejna, width: 2807, height: 3547 }
@@ -24,7 +24,7 @@ const contentByLanguage = {
 
 function App() {
   const [text, setText] = useState('Cheers!')
-  const [customFontFamily, setCustomFontFamily] = useState('Arial')
+  const [customFontFamily, setCustomFontFamily] = useState('Courier New')
   const [image, setImage] = useState('https://placekitten.com/200/200')
   const [language, setLanguage] = useState('English')
   const [count, setCount] = useState(0)
@@ -41,13 +41,13 @@ function App() {
   }
   const onClickHandler = () => {
     setText("Skål!")
-    setCustomFontFamily("Montserrat")
+    setCustomFontFamily("Courier New")
 
   }
   return (
-    <div style={{ fontFamily: "Montserrat" }}>
-      <h1 onClick={onClickHandler}>{contentByLanguage[language].title}</h1>
-      {contentByLanguage[language].textCountry}<br />Espero que te diviertas.
+    <div style={{ fontFamily: "Courier New" }}>
+      <h1 onClick={onClickHandler}>{contentByLanguage[language].title} </h1>
+      {contentByLanguage[language].textCountry}<br />
       <div style={{ fontFamily: customFontFamily }}>
         {text}
       </div>
