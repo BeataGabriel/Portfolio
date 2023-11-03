@@ -26,12 +26,12 @@ function App() {
   const [text, setText] = useState('Cheers!')
   const [customFontFamily, setCustomFontFamily] = useState('Courier New')
   const [image, setImage] = useState('https://placekitten.com/200/200')
-  const [language, setLanguage] = useState('English')
+  const [language, setLanguage] = useState(Object.keys(contentByLanguage)[0]);
   const [count, setCount] = useState(0)
   const onFlagClick = () => {
-    let newLanguage = 'Norwegian'
-    if (language == 'Norwegian') {
-      newLanguage = 'English'
+    let newLanguage = Object.keys(contentByLanguage)[1];
+    if (language == newLanguage) {
+      newLanguage = Object.keys(contentByLanguage)[0];
     }
     setLanguage(newLanguage)
     setCount(count + 1)
