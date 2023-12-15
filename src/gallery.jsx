@@ -1,39 +1,40 @@
-import React, { useEffect } from 'react';
-import PhotoSwipeLightbox from 'photoswipe/lightbox';
-import 'photoswipe/style.css';
+import React, { useEffect } from 'react'
+import PhotoSwipeLightbox from 'photoswipe/lightbox'
+import 'photoswipe/style.css'
+import './gallery.css'
 
-export default function SimpleGallery(props) {
-    useEffect(() => {
-        let lightbox = new PhotoSwipeLightbox({
-            gallery: '#' + props.galleryID,
-            children: 'a',
-            pswpModule: () => import('photoswipe'),
-        });
-        lightbox.init();
+const SimpleGallery = ({ galleryID = '', images = [] }) => {
+  useEffect(() => {
+    let lightbox = new PhotoSwipeLightbox({
+      gallery: `#${galleryID}`,
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
 
-        return () => {
-            lightbox.destroy();
-            lightbox = null;
-        };
-    }, []);
+    return () => {
+      lightbox.destroy();
+      lightbox = null;
+    };
+  }, [galleryID]);
 
-    return (
-        <div className="pswp-gallery" id={props.galleryID} style={{ display: 'flex', gap: 30 }}>
-            {props.images.map((image, index) => (
-                <div>
-                    <a
-                        href={image.image}
-                        data-pswp-width={image.width}
-                        data-pswp-height={image.height}
-                        key={props.galleryID + '-' + index}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img src={image.image} alt="" style={{ maxWidth: 300 }} />
-                    </a>
-                    <h5 className='imageTitle' >{image.title}</h5>
-                </div>
+  return (
+    <div className="pswp-gallery gallery" id={galleryID}>
+      {images.map((image, index) => (
+        <div className="galleryItem" key={`${galleryID}-${index}`}>
+          <a className="image" href={image.image} data-pswp-width={image.width} data-pswp-height={image.height} target="_blank" rel="noreferrer">
+            <img src={image.image} alt="" style={{ maxWidth: 300 }} />
+          </a>
+          <h5 className="imageTitle">{image.title}</h5>
+          <div className="description">
+            {image.description.map((line) => (
+              <p>{line}</p>
             ))}
+          </div>
         </div>
-    );
-}
+      ))}
+    </div>
+  );
+};
+
+export default SimpleGallery;
