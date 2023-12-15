@@ -1,0 +1,43 @@
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.galleryItem {
+    border-bottom: 1px solid lightgrey;
+    display: grid;
+    gap: 15px;
+    grid-template-areas:
+        "image description"
+        "image title";
+    grid-template-rows: 1fr max-content;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+
+.galleryItem:last-of-type {
+    border-bottom: none
+}
+
+.galleryItem:nth-of-type(even) {
+    grid-template-areas:
+        "description image"
+        "description image"
+        "title image";
+}
+
+.galleryItem>.image {
+    grid-area: image;
+}
+
+.galleryItem>h5 {
+    grid-area: title;
+    height: min-content;
+    align-self: center;
+}
+
+.galleryItem>.description {
+    grid-area: description;
+}
