@@ -105,7 +105,7 @@ const contentByLanguage = {
 function App() {
   const [text, setText] = useState('Cheers!')
   const [customFontFamily, setCustomFontFamily] = useState('Courier New')
-  const [image, setImage] = useState('https://placekitten.com/200/200')
+  const [image, setImage] = useState('https://place.dog/200/200')
   const [language, setLanguage] = useState('English')
   const [count, setCount] = useState(0)
   const onFlagClick = () => {
@@ -117,7 +117,7 @@ function App() {
     setCount(count + 1)
   }
   const onImageClick = () => {
-    setImage('https://placekitten.com/150/150')
+    setImage('https://place.dog/150/150')
   }
   const onClickHandler = () => {
     setText("Skål!")
