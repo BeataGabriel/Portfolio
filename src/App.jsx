@@ -106,7 +106,7 @@ function App() {
   const [text, setText] = useState('Cheers!')
   const [customFontFamily, setCustomFontFamily] = useState('Courier New')
   const [image, setImage] = useState('https://place.dog/200/200')
-  const [language, setLanguage] = useState('English')
+  const [language, setLanguage] = useState(Object.keys(contentByLanguage)[0])
   const [count, setCount] = useState(0)
   const onFlagClick = () => {
     let newLanguage = 'Norwegian'
